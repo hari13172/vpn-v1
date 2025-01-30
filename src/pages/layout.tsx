@@ -7,7 +7,7 @@ export default function Layout() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex items-center  p-4 bg-gray-800 text-white">
+        <header className="flex items-center p-2 bg-gray-800 text-white">
         <SidebarTrigger />
         </header>
         <Outlet />

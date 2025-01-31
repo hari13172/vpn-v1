@@ -28,8 +28,8 @@ function Users() {
   );
   }
   return (
-    <div className='h-screen flex justify-center items-center'>
-      <div>
+    <div className='h-screen  w-full flex flex-col gap-4'>
+      <div className='flex  p-4 justify-between items-center'>
       <h1>Users</h1>
       <Button onClick={() =>setUserForm(e => !e)}>Add User</Button>
 
@@ -60,7 +60,9 @@ function Users() {
       </Dialog>
       </div>
 
+      <div>
       <UserTable />
+      </div>
     </div>
   )
 }

@@ -193,7 +193,7 @@ const UserTable = () => {
     return (
         <div className="p-4">
             <Toast ref={toast} />
-            <div className="myTheme" style={{ height: 700, width: 1000 }} >
+            <div className="myTheme" style={{ height: 700, width: "100%" }} >
                 <AgGridReact
                     rowData={users}
                     columnDefs={columnDefs}

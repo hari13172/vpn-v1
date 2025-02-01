@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router";
 import { GetToken, route } from "../../api/route";
 import { ProgressSpinner } from "primereact/progressspinner";
 import { formatTimeAgo } from "../../utils/formatTimeAgo";
@@ -11,9 +10,14 @@ import { Toast } from "primereact/toast";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 import { OverlayPanel } from "primereact/overlaypanel";
 import QRCode from 'react-qr-code';
+import { useNavigate } from "react-router";
 
-export default function UserConfi() {
-    const { user, id } = useParams<{ user: string, id: string }>();
+interface UserConfProps {
+    user: string;
+    id: string;
+}
+
+const UserConf: React.FC<UserConfProps> = ({ user, id }) => {
     const toast: any = useRef(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -28,7 +32,7 @@ export default function UserConfi() {
             return;
         }
         try {
-            const response = await fetch(route.vpn_client_id(user!, id!), {
+            const response = await fetch(route.vpn_client_id(user, id), {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -60,7 +64,7 @@ export default function UserConfi() {
     const DeletePeer = async () => {
         setDeleteLoading(true);
         try {
-            const response = await fetch(route.vpn_remove(user!, users.ipAddress), {
+            const response = await fetch(route.vpn_remove(user, users.ipAddress), {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -205,3 +209,5 @@ export default function UserConfi() {
         </div>
     )
 }
+
+export default UserConf;

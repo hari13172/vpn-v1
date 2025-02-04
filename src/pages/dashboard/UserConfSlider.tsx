@@ -3,10 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { GetToken, route } from "../../api/route";
 import { ProgressSpinner } from "primereact/progressspinner";
 import { formatTimeAgo } from "../../utils/formatTimeAgo";
-
 import { Toast } from "primereact/toast";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
-import { OverlayPanel } from "primereact/overlaypanel";
 import QRCode from 'react-qr-code';
 import { useNavigate } from "react-router";
 import { Input } from '@/components/ui/input';
@@ -58,7 +56,7 @@ const UserConfSlider: React.FC<UserConfSliderProps> = ({ visible, onHide, user, 
             setLoading(false);
         }
     };
-    
+
 
     useEffect(() => {
         fetchUserData();

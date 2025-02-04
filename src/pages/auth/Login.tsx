@@ -63,7 +63,7 @@ export default function SampleDemo() {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ otp: otp }),
+                    body: JSON.stringify({ otp: String(otp) }),
                 });
 
                 const result = await response.json();
@@ -114,12 +114,12 @@ export default function SampleDemo() {
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />
       </InputOTPGroup>
-      <InputOTPSeparator />
+      {/* <InputOTPSeparator /> */}
       <InputOTPGroup>
         <InputOTPSlot index={2} />
         <InputOTPSlot index={3} />
       </InputOTPGroup>
-      <InputOTPSeparator />
+      {/* <InputOTPSeparator /> */}
       <InputOTPGroup>
         <InputOTPSlot index={4} />
         <InputOTPSlot index={5} />

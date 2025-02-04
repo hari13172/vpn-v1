@@ -25,7 +25,7 @@ function ActionMenuRenderer(params: any) {
     );
 }
 
-function UserTables({ data }: { data: any; }) {
+function UserTables({ data, onDeviceClick }: { data: any; onDeviceClick: (user: any) => void; }) {
     const [rowData, setRowData] = useState<any>([]);
 
     // Maintain a map for chart data queues (latest 10 data points per row and column)
@@ -81,7 +81,11 @@ function UserTables({ data }: { data: any; }) {
     };
 
     const [columnDefs] = useState([
-        { field: "deviceName", headerName: "Device Name", sortable: true, filter: true },
+        { field: "deviceName", headerName: "Device Name", sortable: true, filter: true, cellRenderer: (params: any) => (
+            <span style={{ cursor: 'pointer', color: 'blue' }} onClick={() => onDeviceClick(params.data)}>
+                {params.value}
+            </span>
+        ) },
         { field: "ipAddress", headerName: "IP Address", sortable: true, filter: true },
         { field: "ipStatus", headerName: "IP Status", sortable: true, filter: true },
         { field: "transfer.endpoint", headerName: "Transfer Endpoint", sortable: true, filter: true },

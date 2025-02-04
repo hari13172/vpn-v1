@@ -1,9 +1,10 @@
 
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router';
 
 
 export default function Root() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     return (
         <div className="flex justify-center items-center w-full h-screen bg-black text-white">
             <div className="flex flex-col gap-5 justify-center items-center p-4 max-w-5xl w-full">
@@ -16,7 +17,7 @@ export default function Root() {
                 </div>
 
                 {/* <Button size='small' onClick={() => navigate('/auth/login')}>Get Started</Button> */}
-                <Button variant="destructive" onClick={() =>('')}>Get Started</Button>
+                <Button variant="destructive" onClick={() => navigate('/auth/login')}>Get Started</Button>
             </div>
         </div>
     )

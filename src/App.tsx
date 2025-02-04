@@ -4,7 +4,6 @@ import Home from './pages/dashboard/Home'
 import Layout from './pages/layout'
 import Users from './pages/dashboard/Users'
 import UserOnly from './pages/dashboard/UserOnly'
-import UserTables from './pages/dashboard/UserTables'
 import Login from './pages/auth/Login'
 
 
